@@ -3,7 +3,11 @@ class User < ApplicationRecord
 
 	attr_accessor :password
 
-	validates :uuid, presence: true
+	validates :uuid, presence: true, uniqueness: true
+	validates :email, presence: true, uniqueness: true
+	validates :name, presence: true
+	validates :password, presence: true
+	before_create :set_username
 
 	def password=(password_str)
 		unless password_str.blank?
@@ -11,6 +15,12 @@ class User < ApplicationRecord
 			self.password_salt = BCrypt::Engine.generate_salt
 			self.password_digest = BCrypt::Engine.hash_secret(@password, password_salt)
 		end
+	end
+
+	private 
+
+	def set_username
+		self.username = "#{self.name.parameterize(separator: '_', preserve_case: false)}#{Random.rand(1000)}"
 	end
 	
 end

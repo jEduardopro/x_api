@@ -14,7 +14,7 @@ module Api
 			private
 
 			def	register_params
-				params.permit(:name, :email, :date_birth)
+				params.permit(:name, :email, :password)
 			end
 
 		end
