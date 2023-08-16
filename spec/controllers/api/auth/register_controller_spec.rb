@@ -16,9 +16,8 @@ describe Api::Auth::RegisterController, type: :controller do
 				subject
 				expect(subject).to have_http_status(:ok)
 				expect(response.body).to include_json(
-					message: "begin verification",
-					description: "signup_with_email",
-					email: params[:email]
+					message: "register success",
+					user: User.last.as_json(only: [:name, :email, :username])
 				)
 			end
 		end
