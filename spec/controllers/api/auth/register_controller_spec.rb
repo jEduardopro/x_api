@@ -23,5 +23,25 @@ describe Api::Auth::RegisterController, type: :controller do
 			end
 		end
 
+		context 'when params are invalid' do
+			let(:params) {
+				{
+					name: 'john doe',
+					email: '',
+					password: ''
+				}
+			}
+			it 'returns 417' do
+				subject
+				expect(subject).to have_http_status(422)
+				expect(response.body).to include_json(
+					message: {
+						email: ["can't be blank"],
+						password: ["can't be blank"]
+					}
+				)  
+			end
+		end
+
 	end
 end
