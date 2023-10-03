@@ -3,12 +3,8 @@ module Api
 		class RegisterController < ApplicationController
 
 			def register
-				user = User.new(register_params)
-				if user.save
-					render json: {message: "register success", user: user}
-				else
-					render json: {message: user.errors, status: 422}, status: 422
-				end 
+				# binding.pry
+				response_with_interactor(interactor: ::Auth::Register, params: register_params)
 			end
 
 			private
