@@ -3,7 +3,6 @@ module Api
 		class RegisterController < ApplicationController
 
 			def register
-				# binding.pry
 				response_with_interactor(interactor: ::Auth::Register, params: register_params)
 			end
 
