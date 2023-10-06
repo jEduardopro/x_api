@@ -1,8 +1,10 @@
-<h1>User#confirm_account</h1>
+<p>
+	Hello <%= @user.name %>, please confirm your account.
+</p>
 
-<blockquote>
-  <%= @greeting %>, find me in app/views/user_mailer/confirm_account.html.erb
-</blockquote>
+<p>
+	To confirm your account, please click the link below:
+</p>
 
 <p>
 	<a href="#<%= @user.email %>">Confirm your account</a>

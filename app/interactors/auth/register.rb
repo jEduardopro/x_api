@@ -2,8 +2,10 @@ module Auth
 	class Register
 		include Integrations::Interactor
 
+		after :send_confirmation_email
+
 		def call			
-			user = User.new(params)
+			@user = User.new(params)
 
 			return set_result(user) if user.save
 
@@ -12,7 +14,13 @@ module Auth
 
 		delegate :params, to: :context
 
-		private 
+		private
+
+		attr_reader :user
+
+		def send_confirmation_email
+			UserMailer.confirm_account(user).deliver_later
+		end
 
 	end
 end

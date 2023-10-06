@@ -6,7 +6,6 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.confirm_account.subject
   #
   def confirm_account(user)
-    @greeting = "Hi"
 		@user = user
 
     mail to: @user.email, subject: "Confirm your account"
