@@ -3,7 +3,7 @@ module Api
 		class RegisterController < ApplicationController
 
 			def register
-				response_with_interactor(interactor: ::Auth::Register, params: register_params)
+				response_with_interactor(interactor: ::Auth::Register, params: {params: register_params})
 			end
 
 			private

@@ -2,7 +2,7 @@ module Auth
 	class Register
 		include Integrations::Interactor
 
-		def call
+		def call			
 			user = User.new(params)
 
 			return set_result(user) if user.save
@@ -10,9 +10,9 @@ module Auth
 			add_bad_request_error!(user.errors)
 		end
 
+		delegate :params, to: :context
+
 		private 
 
-		delegate :params, to: :context
-		
 	end
 end
