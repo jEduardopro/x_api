@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 			post 'confirm-account', action: :confirm_account, controller: 'confirm_account'
 			post 'login', action: :login, controller: 'login'
 		end
+
+		namespace :home do
+			get 'timeline', action: :index, controller: 'home_timeline'
+		end
 	end
 
 end
