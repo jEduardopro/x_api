@@ -15,7 +15,7 @@ gem "discard", "~> 1.2"
 gem "interactor", "~> 3.0"
 gem "jwt"
 gem "kaminari"
-gem 'config', '= 4.0.0' # handle environment specific settings
+gem 'config', "~> 4.2.0" # handle environment specific settings
 gem "bcrypt", "~> 3.1.7"
 gem "rest-client"
 gem 'active_model_serializers', '~> 0.10.0'
