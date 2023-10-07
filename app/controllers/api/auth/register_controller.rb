@@ -3,7 +3,11 @@ module Api
 		class RegisterController < ApplicationController
 
 			def register
-				response_with_interactor(interactor: ::Auth::Register, params: {params: register_params})
+				response_with_message(
+					interactor: ::Auth::Register, 
+					params: {params: register_params}, 
+					message: 'User created successfully, check your email to confirm your account'
+				)
 			end
 
 			private
