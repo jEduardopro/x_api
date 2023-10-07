@@ -18,6 +18,7 @@ gem "kaminari"
 gem 'config', '= 4.0.0' # handle environment specific settings
 gem "bcrypt", "~> 3.1.7"
 gem "rest-client"
+gem 'active_model_serializers', '~> 0.10.0'
 gem "rack-cors", require: "rack/cors"
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
