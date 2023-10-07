@@ -8,6 +8,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
+gem 'dotenv-rails', groups: [:development, :test]
 gem "jbuilder"
 gem "redis", "~> 4.0"
 gem "sidekiq"

@@ -30,3 +30,7 @@
 .vscode
 /config/local_env.yml
 dump.rdb
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+.env
