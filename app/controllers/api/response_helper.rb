@@ -15,6 +15,13 @@ module Api
 			render json: {message:}, status: :ok
 		end
 
+		def response_with_data(interactor:, params:)
+		interactor = interactor.call(params)
+		return render_error(interactor.error) if interactor.failure?
+
+		render json: interactor.result, status: :ok
+		end
+
 		def render_error(error)
 			render json: {error:}, status: error.status
 		end
