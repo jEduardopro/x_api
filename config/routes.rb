@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :auth do
 			post 'register', action: :register, controller: 'register'
+			post 'confirm-account', action: :confirm_account, controller: 'confirm_account'
 		end
 	end
 

@@ -7,5 +7,5 @@
 </p>
 
 <p>
-	<a href="http://localhost:3000/confirm/<%= @user.token %>">Confirm your account</a>
+	<a href="<%= ENV["FRONTEND_URL"] %>/confirm/<%= @user.token %>">Confirm your account</a>
 </p>
