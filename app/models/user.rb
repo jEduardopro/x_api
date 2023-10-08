@@ -21,6 +21,7 @@ class User < ApplicationRecord
   
   # returns an array of other users who the user has followed
   has_many :followings, through: :given_follows, source: :followed, dependent: :destroy
+	has_many :tweets, dependent: :destroy
 
 	def password=(password_str)
 		unless password_str.blank?

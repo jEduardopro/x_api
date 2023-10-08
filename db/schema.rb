@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_07_234537) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_08_185740) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_234537) do
     t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_followers_on_followed_id"
     t.index ["follower_id"], name: "index_followers_on_follower_id"
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.string "uuid", null: false
+    t.string "body", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tweets_on_user_id"
+    t.index ["uuid"], name: "index_tweets_on_uuid", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +52,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_234537) do
 
   add_foreign_key "followers", "users", column: "followed_id", on_delete: :cascade
   add_foreign_key "followers", "users", column: "follower_id", on_delete: :cascade
+  add_foreign_key "tweets", "users", on_delete: :cascade
 end
