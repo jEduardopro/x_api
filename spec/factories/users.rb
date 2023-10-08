@@ -7,6 +7,10 @@ FactoryBot.define do
 		email_verified_at { Time.now }
 		password { 'password' }
 
+		trait :unverified do 
+			email_verified_at { nil }
+		end
+
 	end
 
 end

@@ -15,10 +15,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_234537) do
   enable_extension "plpgsql"
 
   create_table "followers", force: :cascade do |t|
-    t.integer "follower_id", null: false
-    t.integer "followed_id", null: false
+    t.bigint "follower_id", null: false
+    t.bigint "followed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_followers_on_followed_id"
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_234537) do
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
+  add_foreign_key "followers", "users", column: "followed_id", on_delete: :cascade
+  add_foreign_key "followers", "users", column: "follower_id", on_delete: :cascade
 end
