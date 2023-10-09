@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 		namespace :home do
 			get 'timeline', action: :index, controller: 'home_timeline'
 		end
+
+		namespace :tweets do
+			post '/', action: :create, controller: 'tweet'
+		end
 	end
 
 end
