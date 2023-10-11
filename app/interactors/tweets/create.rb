@@ -17,7 +17,7 @@ module Tweets
 		attr_reader :tweet
 
 		def dispatch_event
-			TweetCreatedJob.perform_later(tweet.id)
+			::Notifications::TweetCreated.new.dispatch(tweet.id)
 		end
 
 	end
