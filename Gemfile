@@ -19,6 +19,7 @@ gem "kaminari"
 gem 'config', "~> 4.2.0" # handle environment specific settings
 gem "bcrypt", "~> 3.1.7"
 gem "rest-client"
+gem 'pusher'
 gem 'active_model_serializers', '~> 0.10.0'
 gem "rack-cors", require: "rack/cors"
 

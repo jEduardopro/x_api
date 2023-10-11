@@ -3,5 +3,6 @@
 :average_scheduled_poll_interval: 2
 :queues:
   - ['default', 5]
+  - ['tweets', 5]
 development:
   :verbose: true
